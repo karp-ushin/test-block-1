@@ -1,0 +1,36 @@
+using System;
+class HelloWorld {
+    static void Main() {
+        string[] cars = {"hello", "2", "world", ":-)"};
+        const int STRINGSIZE = 3;
+        Print(SelectShort(cars,STRINGSIZE));
+    }
+    static void Print(string[] arr)
+    {
+        Console.Write($"[{arr[0]}");
+        for(int i = 1; i < arr.Length; i++) 
+        {
+            Console.Write($", {arr[i]}");
+        }
+        Console.Write("]");
+    }
+    static string[] SelectShort(string[] arr, int stringSize)
+    {
+        int j = 0;
+        for(int i = 0; i<arr.Length; i++)
+        {
+            if(arr[i].Length <= stringSize)
+            {
+                arr[j] = arr[i];
+                j++;
+            }
+        }
+        string[] result = new string[j];
+        for(int i = 0; i<j; i++)
+        {
+            result[i] = arr[i];
+        }
+        return result;
+    }
+}
+
